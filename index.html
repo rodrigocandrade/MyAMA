@@ -5,6 +5,7 @@
     <title>myAMA</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="js/angular.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="js/script.js"></script>
@@ -13,7 +14,7 @@
       .conteudo{
         position:absolute;
         top:30%;
-        left:40%;
+        left:33%;
       }
       .texto h1{
         padding: 0 0 0 100px;
@@ -23,13 +24,21 @@
         position:absolute;
         top:13%;
         left:33%;
-
+      }
+      .span2[type="text"]{
+        width: 400px;
+        height: 100px;
       }
 
-
+      #footer{
+        position:absolute;
+        top:100%;
+        left:28%;
+      }
       li{
         list-style-type: none;
       }
+
     </style>
   </head>
 
@@ -38,22 +47,28 @@
     <!-- Descrição app -->
     <div class="texto">
       <h1>My AMA!</h1>
-      <p><a href="reddit.com/r/ama">Reddit</a> <b>AMA</b>(Ask Me Anything) usando AngularJS + Firebase.</div>
+      <p><a href="http://reddit.com/r/ama">Reddit</a> <b>AMA</b>(Ask Me Anything) usando AngularJS + Firebase.</div>
 
     <!-- DIV criado para manter fora as configuração de CSS do conteudo para o texto de descrição do app -->
     <div class="conteudo">
 
     <div id="form">
       <form name="frm" ng-submit="addQuestion()">
-        <input class="span2" type="text" placeholder="Qual a sua pergunta ?" ng-model="newQuestion" required/>
-        <button ng-disabled="frm$.invalid">Say Hello!</button>
+        <textarea rows="6" cols="10" maxlength="200"class="span2" type="text" placeholder="Qual a sua pergunta ? Máx. 200 Caracteres" ng-model="newQuestion" required></textarea><br>
+        <button ng-disabled="frm$.invalid" id="botao">Say Hello!</button>
       </form>
     </div>
+
   <ul>
     <li ng-repeat="pergunta in perguntas">
-    <span>{{pergunta.title}}</span>
+    <span >{{pergunta.title}}</span> <i class="fa fa-times" style="color:red"></i>
     </li>
   </ul>
+  <!-- footer -->
+  <span id="footer">Código fonte disponível em <a class="fa fa-github fa-2x" href="https://github.com/rodrigocandrade/MyAMA"></a></span>
 </div>
-  </body>
+
+
+</body>
+
 </html>
