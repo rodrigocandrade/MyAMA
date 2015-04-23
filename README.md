@@ -1,7 +1,8 @@
-# MyAMA
+# MyAMA(Ask Me Anything)
 Reddit AMA(Ask Me Anything) usando AngularJS + Firebase
 
-#ADD (23/04/2015)
+#ADD 
+(23/04/2015)
 
 Adicionei algumas funções básicas.
 
@@ -15,4 +16,4 @@ Adicionei algumas funções básicas.
 - Evento de clique em "responder" e "favorito" abrindo box de comentários
 - Integração app -> firebase
 - Ordem de posts com mais UP
-- Melhor layout do código
+- Melhorar layout do código
