@@ -1,0 +1,59 @@
+<!-- Iniciando ng-app -->
+<html ng-app="myAMA">
+
+  <head>
+    <title>myAMA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="js/angular.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="js/script.js"></script>
+
+    <style media="screen">
+      .conteudo{
+        position:absolute;
+        top:30%;
+        left:40%;
+      }
+      .texto h1{
+        padding: 0 0 0 100px;
+
+      }
+      .texto {
+        position:absolute;
+        top:13%;
+        left:33%;
+
+      }
+
+
+      li{
+        list-style-type: none;
+      }
+    </style>
+  </head>
+
+  <!-- Iniciando ng-controller -->
+  <body ng-controller="MainController">
+    <!-- Descrição app -->
+    <div class="texto">
+      <h1>My AMA!</h1>
+      <p><a href="reddit.com/r/ama">Reddit</a> <b>AMA</b>(Ask Me Anything) usando AngularJS + Firebase.</div>
+
+    <!-- DIV criado para manter fora as configuração de CSS do conteudo para o texto de descrição do app -->
+    <div class="conteudo">
+
+    <div id="form">
+      <form name="frm" ng-submit="addQuestion()">
+        <input class="span2" type="text" placeholder="Qual a sua pergunta ?" ng-model="newQuestion" required/>
+        <button ng-disabled="frm$.invalid">Say Hello!</button>
+      </form>
+    </div>
+  <ul>
+    <li ng-repeat="pergunta in perguntas">
+    <span>{{pergunta.title}}</span>
+    </li>
+  </ul>
+</div>
+  </body>
+</html>
