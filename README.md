@@ -16,6 +16,7 @@ Adicionei algumas funções básicas.
 #Todo
 
 - Evento de clique em "responder" e "favorito" abrindo box de comentários
+- Login com Twitter ou Google
 - Integração app -> firebase
 - Ordem de posts com mais UP
 - Melhorar layout do código
