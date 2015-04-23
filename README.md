@@ -1,4 +1,4 @@
-# MyAMA(Ask Me Anything)
+# MyAMA
 Reddit AMA(Ask Me Anything) usando AngularJS + Firebase
 
 #ADD 
