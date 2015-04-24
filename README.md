@@ -7,6 +7,7 @@ Reddit AMA(Ask Me Anything) usando AngularJS + Firebase
 
 #Todo
 
+- Separar posts do usuario que fez login.
 - Evento de clique em "responder" e "favorito" abrindo box de comentários
 - Excluir Posts(firebase)<br>
 <s>- Login com Twitter</s><br>
