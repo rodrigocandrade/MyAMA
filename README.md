@@ -1,8 +1,8 @@
 # MyAMA
 Reddit AMA(Ask Me Anything) usando AngularJS + Firebase
 
-<img src="img/ama1.jpg" /><br>
-<img src="img/ama1.jpg" />
+<img src="img/ama01.jpg" /><br>
+<img src="img/ama02.jpg" />
 
 
 #Todo
