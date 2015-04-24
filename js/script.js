@@ -1,23 +1,30 @@
 
-var myAMA = angular.module('myAMA', []);
+var myAMA = angular.module('myAMA', ['ngMaterial']);
 
 
 // Controle principal
-myAMA.controller('MainController', ['$scope','$http', function($scope,$http){
+myAMA.controller('MainController', ['$scope','$http','$timeout', function($scope,$http,$timeout){
 
-    // Nome do usuario
-    $scope.username = 'Nome do Usuário';
-    $scope.perguntas = [
-      {'title':'Mensagem numero 1'},
-      {'title':'Mensagem numero 2'},
-      {'title':'Mensagem numero 3'}
-    ];
+
+
+    // $scope Perguntas
+    $scope.perguntas = [];
+
+    $scope.myData = new Firebase("https://myamajs.firebaseio.com");
+
+    $scope.myData.on('value', function(snapshot){
+      $timeout(function(){
+        $scope.perguntas = snapshot.val();
+      });
+    });
+
 
       // Perguntas
       $scope.addQuestion = function(){
-        $scope.perguntas.push({'title': $scope.newQuestion});
+        $scope.myData.push({perguntaFirebase:$scope.newQuestion});
         $scope.newQuestion = '';
       };
+
 
       // Deletar posts
       $scope.deletar = function($index){
@@ -26,7 +33,17 @@ myAMA.controller('MainController', ['$scope','$http', function($scope,$http){
 
 
       // Scripts para responder as perguntas
+      $scope.comments = [];
 
+      $scope.userComments = function(){
+        $scope.comments.push({'title':$scope.newComment});
+        $scope.newComment = '';
+      };
+
+      // Deletar comments
+      $scope.deletarComments = function($index){
+        $scope.comments.splice($index,1);
+      };
 
 
 
