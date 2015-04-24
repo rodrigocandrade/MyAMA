@@ -3,20 +3,12 @@ Reddit AMA(Ask Me Anything) usando AngularJS + Firebase
 
 <img src="img/myAma.jpg" />
 
-#ADD 
-(23/04/2015)
 
-Adicionei algumas funções básicas.
-
-- Hover dos botões UP e DOWN
-- Criação de POSTS
-- Função de excluir os posts
-- Box de comentários
 
 #Todo
 
 - Evento de clique em "responder" e "favorito" abrindo box de comentários
 - Login com Twitter ou Google
-- Integração app -> firebase
+<s>- Integração app -> firebase</s>
 - Ordem de posts com mais UP
 - Melhorar layout do código
