@@ -22,48 +22,65 @@
 
   <!-- Iniciando ng-controller -->
   <body ng-controller="MainController">
+
+    <span class="txt-twitter" ng-show="authData"><b>Você está logado como: </b>@{{authData.twitter.username}}</span>
+    <span>{{authData.twitter.user_id}}</span>
+
     <!-- Descrição app -->
     <div class="texto">
       <h1>My AMA!</h1>
-      <p><a href="http://reddit.com/r/ama">Reddit</a> <b>AMA</b>(Ask Me Anything) usando AngularJS + Firebase.</div>
-
-    <!-- DIV criado para manter fora as configuração de CSS do conteudo para o texto de descrição do app -->
-    <div class="conteudo">
-
-    <div id="form">
-
-
-        <form name="frm" ng-submit="addQuestion()">
-        <textarea rows="6" cols="10" maxlength="200" id="max200"class="span2" type="text" placeholder="Qual a sua pergunta ? Máx. 200 Caracteres" ng-model="newQuestion" required></textarea><br>
-        <button ng-disabled="frm$.invalid" id="botao">Olá!</button>
-      </form>
+      <p><b><a href="http://reddit.com/r/ama">Reddit</a> <b>AMA</b>(Ask Me Anything) usando AngularJS + Firebase.</b><br><br>
+      <h2>Você deve logar primeiro</h2><br>
+      <div ng-hide="authData" class="social_box">
+      <div id="twitter" class="btn-group">
+    		<a class='btn btn-info disabled'><i class="fa fa-twitter" style="width:15px; height:20px"></i></a>
+    		<a class='btn btn-info' ng-click="login()" style="width:12em">Login Twitter</a>
+    	</div>
+      </div>
     </div>
 
-  <ul id="linha">
-    <li ng-repeat="pergunta in perguntas">
-      <b><p><span>{{username}}</span></b> diz:</p>
 
-      <!-- Falta criar scripts para contar os UP e DOWN e colocar em ordem decrescente -->
-      <i class="fa fa-arrow-up" id="up"></i><i class="fa fa-arrow-down" id="down"></i>
-        <span>{{pergunta.perguntaFirebase}}</span> <i class="fa fa-times" ng-click="deletar($index)"></i><br>
-        <a href="#" onclick=""id="reply">Responder</a><a href="#" id="reply">♥</a>
 
-        <!-- comentarios -->
-        <form name="frm-comment" ng-submit="userComment()">
-          <textarea  id="reply_box" rows="8" cols="40" placeholder="Comente este post" ng-model="newComment" required></textarea>
-          <button ng-disabled="frm-comment$.invalid" id="reply_botao">Responder</button>
+      <!-- DIV criado para manter fora as configuração de CSS do conteudo para o texto de descrição do app -->
+      <div ng-show="authData" class="conteudo">
+
+      <div id="form">
+
+
+          <form name="frm" id="box_pergunta" ng-submit="addQuestion()">
+          <textarea rows="6" cols="10" maxlength="200" id="max200"class="span2" type="text" placeholder="Qual a sua pergunta ? Máx. 200 Caracteres" ng-model="newQuestion" required></textarea><br>
+          <button ng-disabled="frm$.invalid" id="botao">Olá!</button>
         </form>
-      </li>
+      </div>
 
-      <li ng-repeat="comment in comments">
-        <span id="reply_span">{{comment.title}}</span> <i class="fa fa-times" ng-click="deletarComments($index)"></i>
-      </li>
-  </ul>
+      <ul id="linha">
+      <li ng-repeat="pergunta in perguntas">
+        <b><p><span>@{{authData.twitter.username}}</span></b> diz:</p>
 
-  <!-- footer -->
-  <span id="footer">Código fonte disponível em <a class="fa fa-github fa-2x" href="https://github.com/rodrigocandrade/MyAMA"></a></span><br>
-  <br>
-</div>
+        <!-- Falta criar scripts para contar os UP e DOWN e colocar em ordem decrescente -->
+        <i class="fa fa-arrow-up" id="up"></i><i class="fa fa-arrow-down" id="down"></i>
+          <span>{{pergunta.perguntaFirebase}}</span><br>
+          <a href="#" onclick=""id="reply">Responder</a><a href="#" id="reply">Favoritar</a>
+
+          <!-- comentarios -->
+          <form name="frm-comment" ng-submit="userComment()">
+            <textarea  id="reply_box" rows="8" cols="40" placeholder="Comente este post" ng-model="newComment" required></textarea>
+            <button ng-disabled="frm-comment$.invalid" id="reply_botao">Responder</button>
+          </form>
+        </li>
+
+        <li ng-repeat="comment in comments">
+          <span id="reply_span">{{comment.title}}</span> <i class="fa fa-times" ng-click="deletarComments($index)"></i>
+        </li>
+      </ul>
+
+
+      <br>
+      </div>
+      <!-- footer -->
+
+
+
 
 <!-- Angular Material Dependencies -->
 

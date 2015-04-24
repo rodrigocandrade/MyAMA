@@ -1,26 +1,43 @@
+body{
+  background:#FAFAFA;
+
+}
+
 .conteudo{
   position:absolute;
   top:28%;
   left:33%;
 }
 .texto h1{
-  padding: 0 0 0 100px;
-
+  padding: 0 0 0 40px;
+  font-size: 80px;
+  line-height: 1;
+  color: #eee5a2;
+  text-transform: uppercase;
+  text-shadow: 5px 5px #32312b;
+}
+.texto h2{
+  padding: 0 0 0 60px;
+  font-size: 20px;
+  line-height: 1;
+  color: #32312b;
+  text-transform: uppercase;
+  text-shadow: 3px 3px #eee5a2;
 }
 .texto {
   position:absolute;
   top:13%;
   left:33%;
 }
+
 .span2[type="text"]{
   width: 400px;
   height: 100px;
 }
 #footer{
   position:absolute;
-  down:6%;
-  left:28%;
-
+  top:91%;
+  left:35%;
 }
 
 li{
@@ -71,10 +88,30 @@ li{
   font-size:9px;
   margin: 0 3px 0 3px;
   color: black;
-
 }
 
 #reply_span{
   margin-left: 15px;
   font-size: 12px;
+}
+#twitter{
+  left:25%;
+  margin-top: 10px;
+}
+.social_box{
+  background:#EFEBE9;
+  height:50px;
+  weight:100px;
+  border: solid 1px #eee5a2;
+}
+#box_pergunta{
+  margin-top: 30px;
+}
+.txt-twitter{
+  position: absolute;
+  top:4%;
+  left:40%;
+  margin-bottom:30px;
+  background-color: #FFEBEE;
+  border: solid 1px #FFCDD2;
 }

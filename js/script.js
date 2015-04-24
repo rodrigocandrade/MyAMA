@@ -3,7 +3,7 @@ var myAMA = angular.module('myAMA', ['ngMaterial']);
 
 
 // Controle principal
-myAMA.controller('MainController', ['$scope','$http','$timeout', function($scope,$http,$timeout){
+myAMA.controller('MainController', ['$scope','$http','$timeout', function($scope,$http,$timeout,$mdDialog){
 
 
 
@@ -27,9 +27,7 @@ myAMA.controller('MainController', ['$scope','$http','$timeout', function($scope
 
 
       // Deletar posts
-      $scope.deletar = function($index){
-        $scope.perguntas.splice($index,1);
-      };
+
 
 
       // Scripts para responder as perguntas
@@ -44,6 +42,30 @@ myAMA.controller('MainController', ['$scope','$http','$timeout', function($scope
       $scope.deletarComments = function($index){
         $scope.comments.splice($index,1);
       };
+
+      //Twiiter Login
+      $scope.login = function(){
+          var ref = new Firebase("https://myamajs.firebaseio.com");
+          ref.authWithOAuthPopup('twitter',function(error, authData){
+            if(error){
+              alert('Ocorreu algum erro em seu login.');
+            }else{
+              alert('Login efetuado com sucesso!')
+
+            }
+
+            $scope.authData = authData;
+            $timeout(function(){
+              user: $scope.authData.twitter.username;
+
+            });
+
+          });
+
+      };
+
+
+
 
 
 
